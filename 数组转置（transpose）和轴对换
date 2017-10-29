@@ -1,0 +1,12 @@
+#转置返回的是源数据的视图，不会进行任何复制操作（包括.T,.transpose,swapaxes）
+#arr.T:数组的T属性，类似矩阵的横纵转换
+arr = np.random.randn(6, 3)
+print(arr)
+print(arr.T)
+print(np.dot(arr.T, arr))
+
+#transpose 和swapaxes，都是对轴进行变化，可以理解轴对应的索引进行变化
+arr = np.arange(16).reshape((2, 2, 4))
+print(arr)
+print(arr.transpose(1, 0, 2))
+print(arr.swapaxes(1, 2)) 
