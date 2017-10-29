@@ -1,0 +1,48 @@
+#通用函数（即ufunc）是一种对ndarray中的数据执行元素级运算的函数。你可以将其看做简单函数（接受一个或多个标量值，并产生一个或多个标量值）的矢量化包装器
+#简单的一元ufunc函数：np.sqrt,np.exp
+arr = np.arange(10)
+arr_1 = np.sqrt(arr)
+arr_2 = np.exp(arr)
+print(arr_1)
+print(arr_2)
+
+#二元ufunc函数：maximum
+x = np.random.randn(8)
+y = np.random.randn(8)
+print(x, y)
+x_y = np.maximum(x, y)
+print(x_y)
+#返回多个数组的函数：modf，用来分开浮点数的整数部分和小数部分
+arr = np.random.randn(7)*5
+arr_1 = np.modf(arr)
+print(arr)
+print(arr_1) 
+
+#一元ufunc
+# abs,fabs:计算整数、浮点数或者负数的绝对值，对于非复数，可以用更快的fabs
+#sqrt:计算各元素的平方根，相当于arr**0.5
+#square:计算各元素的平方，相当于arr**2
+#exp：计算各元素的指数
+#log,log10,log2,log1p:计算对数，底数分别为e,10,2,log（1+x）
+#sign：计算各元素的正负号，正数1，负数-1，零0
+#ceil：计算大于等于该值的最小整数
+#floor：计算小于等于该值的最大整数
+#rint：四舍五入为最接近的整数，保留dtype
+#modf：将浮点数的小数部分与整数分开
+#isnan：返回“那些值是NaN（不是一个数字）”的布尔型数组
+#isfinite,isinf:返回“那些值是有穷或无穷”的布尔型数组
+#cos,cosh,sin,sinh,tan,tanh:普通型和双曲型三角函数
+#arc-cos等:反三角函数
+
+#二元ufunc
+#add：数组数据对应相加
+#subtract：从第一个数组中减去第二个数组中的元素
+#multiply：数组元素相乘
+#divide，floor_divide：除法或向下圆整除法（除去余数）
+#power：第一个元组中的元素A，根据第二个元组对应的元素B，计算A的B次方
+#maximum，fmax：元素级的最大值计算，fmax将忽略NaN
+#minimum，fmin：元素级的最小值计算，fmax将忽略NaN
+#mod：元素级的求模运算（除法的余数）
+#copysign：将第二个数组中元素的符号复制个第一个数组的中值
+#greater，greater_equal,less,less_equal,equal,not_equal:相当于>,>=等，返回一个布尔值
+#logical_and,logical_or,logical_xor:执行元素级的真值逻辑运算。相当于中缀运算符&，|，^
